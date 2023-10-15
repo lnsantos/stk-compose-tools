@@ -1,0 +1,46 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: compose-tools
+  display-name: compose-tools
+  description: Sample to test with standers with two plugins
+  version: 0.0.1
+  picture: plugin.png
+spec:
+  type: infra
+  compatibility:
+    - python
+  about: docs/about.md
+  implementation: docs/implementation.md
+  release-notes: docs/release-notes-0.0.1.md
+  requirements: docs/requirements.md
+  single-use: False
+  repository: https://github.com/lnsantos/stk-compose-tools.git
+  technologies: # Ref: https://docs.stackspot.com/content-creator/studio/yaml-files/plugin-yaml/#technologies
+    - Api
+  runtime:
+    environment:
+      - terraform-1-4
+      - aws-cli-2
+      - git-2
+  stk-projects-only: false
+  inputs:
+    - label: Type name of your resource
+      name: resource
+      type: text
+      required: true 
+      default: Client
+      pattern: '([A-Z][a-z]+)+'
+      help: 'Inform your resource name (e.g.: Client)'
+    - label: Choose http method of new endpoint
+      name: method
+      type: text
+      items:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - PATCH
+      default: GET
+      required: true
+      help: 'Inform the method of the endpoint (e.g.: post or delete)'
