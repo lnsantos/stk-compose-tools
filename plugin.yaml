@@ -25,22 +25,15 @@ spec:
       - git-2
   stk-projects-only: false
   inputs:
-    - label: Type name of your resource
-      name: resource
+    - label: Group ID
+      name: group_id
       type: text
       required: true 
-      default: Client
-      pattern: '([A-Z][a-z]+)+'
-      help: 'Inform your resource name (e.g.: Client)'
-    - label: Choose http method of new endpoint
-      name: method
+      pattern: '([a-z.]+)+'
+      help: 'Inform your resource name (e.g.: com.lnsantos)'  
+    - label: Choose artifactId
+      name: artifact_id
       type: text
-      items:
-        - GET
-        - POST
-        - PUT
-        - DELETE
-        - PATCH
-      default: GET
       required: true
-      help: 'Inform the method of the endpoint (e.g.: post or delete)'
+      pattern: '([a-z]+)+'
+      help: 'Inform the artifactId'
